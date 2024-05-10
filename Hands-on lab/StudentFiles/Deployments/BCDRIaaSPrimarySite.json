@@ -673,7 +673,7 @@
         "ipTags": []
       },
       "zones": [
-        "1"
+        "2"
       ]
     },
     {
@@ -687,7 +687,7 @@
         "[resourceId('Microsoft.Network/networkInterfaces', variables('SQLVM1NicName'))]"
       ],
       "zones": [
-        "1"
+        "2"
       ],
       "tags": {
         "displayName": "SQLVM1"
@@ -836,7 +836,7 @@
         "ipTags": []
       },
       "zones": [
-        "2"
+        "3"
       ]
     },
     {
@@ -850,7 +850,7 @@
         "[resourceId('Microsoft.Network/networkInterfaces', variables('SQLVM2NicName'))]"
       ],
       "zones": [
-        "2"
+        "3"
       ],
       "tags": {
         "displayName": "SQLVM2"
@@ -990,7 +990,7 @@
         "[resourceId('Microsoft.Network/networkInterfaces', variables('WEBVM1NicName'))]"
       ],
       "zones": [
-        "1"
+        "2"
       ],
       "tags": {
         "displayName": "WEBVM1"
@@ -1093,7 +1093,7 @@
         "[resourceId('Microsoft.Network/networkInterfaces', variables('WEBVM2NicName'))]"
       ],
       "zones": [
-        "2"
+        "3"
       ],
       "tags": {
         "displayName": "WEBVM2"
@@ -1172,7 +1172,7 @@
         "tier": "Regional"
       },
       "zones": [
-        "1"
+        "2"
       ]
     },
     {
