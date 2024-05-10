@@ -28,6 +28,41 @@ Configuration Main
 
 Param ( [string] $nodeName )
 
+function disable-ssl-2.0 {
+    New-Item ‘HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Server’ -Force
+    New-ItemProperty -Path ‘HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Server’ -Name Enabled -Value 0 –PropertyType DWORD
+    Write-Host "Disabling SSLv2"
+}
+function disable-ssl-3.0 {
+    New-Item ‘HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Server’ -Force
+    New-ItemProperty -Path ‘HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Server’ -Name Enabled -Value 0 –PropertyType DWORD
+    Write-Host "Disabling SSLv3"
+}
+function disable-tls-1.0 {
+    New-Item “HKLM:\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\PROTOCOLS” –Name “TLS 1.0”
+    New-Item “HKLM:\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\PROTOCOLS\TLS 1.0” –Name SERVER
+    New-ItemProperty “HKLM:\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\PROTOCOLS\TLS 1.0\SERVER” –Name Enabled –Value 0 –Type DWORD
+    Write-Host "Disabling TLSv1.0"
+}
+function enable-tls-1.1 {
+    New-Item ‘HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server’ -Force
+    New-Item ‘HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client’ -Force
+    New-ItemProperty -Path ‘HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server’ -Name ‘Enabled’ -Value ‘0xffffffff’ –PropertyType DWORD
+    New-ItemProperty -Path ‘HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server’ -Name ‘DisabledByDefault’ -Value 0 –PropertyType DWORD
+    New-ItemProperty -Path ‘HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client’ -Name ‘Enabled’ -Value 1 –PropertyType DWORD
+    New-ItemProperty -Path ‘HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client’ -Name ‘DisabledByDefault’ -Value 0 –PropertyType DWORD
+    Write-Host "Enabling TLSv1.1"
+}
+function enable-tls-1.2 {
+    New-Item ‘HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server’ -Force
+    New-Item ‘HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client’ -Force
+    New-ItemProperty -Path ‘HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server’ -Name ‘Enabled’ -Value ‘0xffffffff’ –PropertyType DWORD
+    New-ItemProperty -Path ‘HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server’ -Name ‘DisabledByDefault’ -Value 0 –PropertyType DWORD
+    New-ItemProperty -Path ‘HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client’ -Name ‘Enabled’ -Value 1 –PropertyType DWORD
+    New-ItemProperty -Path ‘HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client’ -Name ‘DisabledByDefault’ -Value 0 –PropertyType DWORD
+    Write-Host "Enabling TLSv1.2"
+}
+
 Import-DscResource -ModuleName PSDesiredStateConfiguration
 
 Node $nodeName
