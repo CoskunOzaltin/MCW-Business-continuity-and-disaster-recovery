@@ -4,7 +4,7 @@
   "parameters": {},
   "variables": {
     "GitHubScriptRepo": "CoskunOzaltin/MCW-Business-continuity-and-disaster-recovery",
-    "GitHubScriptRepoBranch": "master",
+    "GitHubScriptRepoBranch": "alper",
     "GitHubScriptRepoBranchURL": "[concat('https://raw.githubusercontent.com/', variables('GitHubScriptRepo'), '/', variables('GitHubScriptRepoBranch'), '/Hands-on lab/NestedDeployments/')]",
     "GitHubMediaRepoBranchURL": "[concat('https://media.githubusercontent.com/media/', variables('GitHubScriptRepo'), '/', variables('GitHubScriptRepoBranch'), '/Hands-on lab/NestedDeployments/')]",
     "BCDRFOVNetName": "BCDRFOVNET",
