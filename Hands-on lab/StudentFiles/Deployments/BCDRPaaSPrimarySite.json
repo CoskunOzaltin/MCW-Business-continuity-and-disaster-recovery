@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
-    "GitHubScriptRepo": "microsoft/MCW-Business-continuity-and-disaster-recovery",
+    "GitHubScriptRepo": "CoskunOzaltin/MCW-Business-continuity-and-disaster-recovery",
     "GitHubScriptRepoBranch": "master",
     "GitHubScriptRepoBranchURL": "[concat('https://raw.githubusercontent.com/', variables('GitHubScriptRepo'), '/', variables('GitHubScriptRepoBranch'), '/Hands-on lab/NestedDeployments/')]",
     "bcdrprimarysqlserverName": "[concat('bcdrprimarysqlserver', uniqueString(resourceGroup().id))]",
