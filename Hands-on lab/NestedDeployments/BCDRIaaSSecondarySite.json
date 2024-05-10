@@ -259,7 +259,7 @@
         "ipTags": []
       },
       "zones": [
-        "1"
+        "3"
       ]
     },
     {
@@ -271,7 +271,7 @@
         "[resourceId('Microsoft.Network/networkInterfaces', variables('SQLVM3NicName'))]"
       ],
       "zones": [
-        "1"
+        "3"
       ],
       "tags": {
         "displayName": "SQLVM3"
@@ -387,7 +387,7 @@
         "tier": "Regional"
       },
       "zones": [
-        "1"
+        "3"
       ]
     },
     {
