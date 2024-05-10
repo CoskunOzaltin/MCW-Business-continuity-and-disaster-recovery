@@ -9,7 +9,7 @@
     }
   },
   "variables": {
-    "GitHubScriptRepo": "microsoft/MCW-Business-continuity-and-disaster-recovery",
+    "GitHubScriptRepo": "CoskunOzaltin/MCW-Business-continuity-and-disaster-recovery",
     "GitHubScriptRepoBranch": "master",
     "GitHubScriptRepoBranchURL": "[concat('https://raw.githubusercontent.com/', variables('GitHubScriptRepo'), '/', variables('GitHubScriptRepoBranch'), '/Hands-on lab/NestedDeployments/')]",
     "GitHubMediaRepoBranchURL": "[concat('https://media.githubusercontent.com/media/', variables('GitHubScriptRepo'), '/', variables('GitHubScriptRepoBranch'), '/Hands-on lab/NestedDeployments/')]",
@@ -23,7 +23,7 @@
     "HyperVHostImageOffer": "WindowsServer",
     "HyperVHostWindowsOSVersion": "2016-Datacenter",
     "HyperVHostOSDiskName": "[concat(variables('HyperVHostName'), '-OSDISK')]",
-    "HyperVHostVmSize": "Standard_D4s_v3",
+    "HyperVHostVmSize": "Standard_B2S_V2",
     "HyperVHostVnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'OnPremVNET')]",
     "HyperVHostSubnetRef": "[concat(variables('HyperVHostVnetID'), '/subnets/', variables('OnPremVNETSubnet1Name'))]",
     "HyperVHostNicName": "[concat(variables('HyperVHostName'), '-NIC')]",
