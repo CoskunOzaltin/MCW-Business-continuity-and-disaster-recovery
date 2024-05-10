@@ -21,8 +21,6 @@ Microsoft Cloud Workshop: BCDR
 
 #>
 
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-
 Configuration Main
 {
 
