@@ -23,7 +23,7 @@
     "HyperVHostImageOffer": "WindowsServer",
     "HyperVHostWindowsOSVersion": "2016-Datacenter",
     "HyperVHostOSDiskName": "[concat(variables('HyperVHostName'), '-OSDISK')]",
-    "HyperVHostVmSize": "Standard_B2S_V2",
+    "HyperVHostVmSize": "Standard_D2S_v3",
     "HyperVHostVnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'OnPremVNET')]",
     "HyperVHostSubnetRef": "[concat(variables('HyperVHostVnetID'), '/subnets/', variables('OnPremVNETSubnet1Name'))]",
     "HyperVHostNicName": "[concat(variables('HyperVHostName'), '-NIC')]",
