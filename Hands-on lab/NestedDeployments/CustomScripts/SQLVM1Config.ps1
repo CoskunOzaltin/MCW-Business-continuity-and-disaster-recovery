@@ -1,27 +1,3 @@
-<# 
-Microsoft Cloud Workshop: BCDR
-.File Name
- - SQLVM1Config.ps1
- 
-.What calls this script?
- - This is a PowerShell DSC script running as Script Extension called by BCDRIaaSPrimarySite.json
-
-.What does this script do?  
- - Initializes a new data disk, formats and give the letter F:\ and creates Backup, Data and Logs directories
-    
- - Sets SQL Configs: Directories made as defaults, Enables TCP, Eables Mixed Authentication SA Account
-
- - Downloads the ContosoInsurnace Database as a Backup Device, then Restores the Database
-
- - Adds the Domain Built-In Administrators to the SYSADMIN group
-
- - Changes to Recovery type of the DB to "Full Recovery" and then performs a Backup to meet the requirements of AOG
-
- - Opens three Firewall ports in support of the AOG:  1433 (default SQL), 5022 (HADR Listener), 59999 (Internal Loadbalacer Probe)
-
-#>
-
-
 Configuration Main
 {
 
@@ -81,7 +57,7 @@ Node $nodeName
 		$dbsource = "https://github.com/CoskunOzaltin/MCW-Business-continuity-and-disaster-recovery/raw/alper/Hands-on%20lab/NestedDeployments/CustomScripts/ContosoInsurance.bak"
 		#$dbsource = "https://www.dropbox.com/s/z90t4rpy8b8z1cq/ContosoInsurance.bak?dl=1"
 		$dbdestination = "C:\ContosoInsurance.bak"
-		Invoke-WebRequest $dbsource -OutFile $dbdestination
+		Invoke-WebRequest $dbsource -OutFile $dbdestination -UseBasicParsing
 
 		$mdf = New-Object Microsoft.SqlServer.Management.Smo.RelocateFile("ContosoInsurance", "F:\Data\ContosoInsurance.mdf")
 		$ldf = New-Object Microsoft.SqlServer.Management.Smo.RelocateFile("ContosoInsurance_Log", "F:\Logs\ContosoInsurance.ldf")
