@@ -53,7 +53,8 @@ Node $nodeName
 		Invoke-Sqlcmd -ServerInstance Localhost -Database "master" -Query "ALTER LOGIN sa ENABLE"
 		Invoke-Sqlcmd -ServerInstance Localhost -Database "master" -Query "ALTER LOGIN sa WITH PASSWORD = 'demo@pass123'"
 
-		# Get the Contoso Insurance database backup 
+		# Get the Contoso Insurance database backup
+		[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 		$dbsource = "https://github.com/CoskunOzaltin/MCW-Business-continuity-and-disaster-recovery/raw/alper/Hands-on%20lab/NestedDeployments/CustomScripts/ContosoInsurance.bak"
 		#$dbsource = "https://www.dropbox.com/s/z90t4rpy8b8z1cq/ContosoInsurance.bak?dl=1"
 		$dbdestination = "C:\ContosoInsurance.bak"
